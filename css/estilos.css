@@ -1,99 +1,100 @@
+/* ==========================================================================
+   Estilos Globales - Aplicados a múltiples o todas las páginas
+   ========================================================================== */
+
 body {
     margin: 0;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     background-color: #fff;
     color: #333;
     line-height: 1.6;
+    /* Estilos base para todo el cuerpo del documento */
 }
 
-header {
-    width: 100%;
-    height: auto;
-    min-height: 10px;
-    margin: 0;
-    padding: 30px 0;
-    background-image: linear-gradient(to bottom, rgba(17, 36, 156, 0.15), rgba(0,0,0,0.03)), url('img/tu-imagen-de-header.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    position: relative;
-    animation: fadeInHeader 0.8s ease-out forwards;
+main {
+    padding: 20px;
+    /* Espaciado interior principal, usado en todas las páginas */
 }
 
-.navbar {
+main>section:first-of-type {
+    margin-top: 0;
+    /* Elimina el margen superior del primer section dentro de main */
+}
+
+main>section:last-of-type {
+    margin-bottom: 0;
+    /* Elimina el margen inferior del último section dentro de main */
+}
+
+main div:not(section div) {
+    max-width: 1200px;
+    margin: 0 auto 30px auto;
+    /* Estilos para divs que son hijos directos de main (como #nosotros en index.html) */
+}
+
+h2 {
+    font-size: 24px;
+    color: #6F1E2A;
+    margin-top: 0;
+    margin-bottom: 20px;
+    /* Estilo general para encabezados H2 */
+}
+
+h3 {
+    font-size: 28px;
+    /* Tamaño de fuente para H3 */
+    color: #6F1E2A;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 40px;
+    /* Estilo para títulos de sección como "NOSOTROS", "programas de estudio" */
+}
+
+p {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.7;
+    margin-top: 0;
+    margin-bottom: 1em;
+    /* Estilo general para párrafos */
+}
+
+section {
+    background: white;
+    padding: 30px 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    padding: 10px 20px;
-    position: relative;
-    max-width: 1300px;
-    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    box-sizing: border-box;
+    /* Estilo base para los elementos section, usado en varias páginas */
 }
 
-.navbar-left {
-    position: relative;
-    left: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.navbar-left img {
-    height: 40px;
-    transition: height 0.3s ease;
-}
-
-.navbar-center {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    justify-content: center;
-    align-items: center;
-}
-
-.navbar-center a {
-    color: rgb(17, 36, 156);
-    text-decoration: none;
-    font-size: 14px;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    padding: 5px 10px;
-    border-radius: 4px;
-    transition: color 0.3s ease, background-color 0.3s ease;
-}
-
-
-.navbar-center a:hover {
-    color: #FFD700;
-    background-color: rgba(17, 36, 156, 0.1);
-}
-
-@keyframes fadeInScaleUp {
-    from {
-        opacity: 0;
-        transform: scale(0.95);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-.imgo {
+section div {
+    text-align: center;
     width: 100%;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
+    /* Asegura que los divs dentro de section ocupen todo el ancho */
 }
 
-.imgo img {
-    width: 100%;
-    max-height: 60vh;
-    height: auto;
-    display: block;
-    object-fit: cover;
-    border: 2px solid #6F1E2A;
-    animation: fadeInScaleUp 1.2s ease-out forwards;
+section h2 {
+    font-size: 22px;
+    /* Tamaño específico para H2 dentro de sections */
+    color: #b22222;
+    margin-bottom: 15px;
+}
+
+section p {
+    font-size: 15px;
+    /* Tamaño específico para párrafos dentro de sections */
+    color: #555;
+    margin-bottom: 0;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 img:not([src]) {
@@ -109,34 +110,176 @@ img:not([src]) {
     padding: 10px;
     color: #555;
     font-size: 0.9em;
+    /* Estilo de marcador de posición para imágenes con src vacío */
+}
+
+button {
+    background-color: #6F1E2A;
+    color: #f9f9f9;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    /* Estilo general para botones */
+}
+
+button:hover {
+    background-color: #5a1822;
+    transform: translateY(-2px);
+    /* Efecto al pasar el mouse */
+}
+
+button:active {
+    transform: translateY(0px);
+    /* Efecto al hacer clic */
 }
 
 
-main {
-    padding: 20px;
+/* ==========================================================================
+   Encabezado y Navegación - Aplicados en todas las páginas
+   ========================================================================== */
+
+header {
+    width: 100%;
+    height: auto;
+    min-height: 10px;
+    margin: 0;
+    padding: 30px 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    animation: fadeInHeader 0.8s ease-out forwards;
+    /* Animación de aparición del encabezado */
 }
 
-main > section:first-of-type {
-    margin-top: 0;
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    position: relative;
+    max-width: 1300px;
+    margin: 0 auto;
+    /* Diseño de la barra de navegación */
 }
 
-main > section:last-of-type {
-    margin-bottom: 0;
+.navbar-left {
+    position: relative;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    /* Posicionamiento del logo a la izquierda */
+}
+
+.navbar-left img {
+    height: 40px;
+    transition: height 0.3s ease;
+    /* Tamaño y transición del logo */
+}
+
+.navbar-center {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    /* Diseño de los enlaces centrales de la barra de navegación */
+}
+
+.navbar-center a {
+    color: rgb(17, 36, 156);
+    text-decoration: none;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    /* Estilo de los enlaces de navegación */
+}
+
+.navbar-center a:hover {
+    color: #FFD700;
+    background-color: rgba(17, 36, 156, 0.1);
+    /* Efecto hover en los enlaces */
+}
+
+@keyframes fadeInHeader {
+    from {
+        opacity: 0;
+        transform: translateY(-25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Definición de la animación fadeInHeader */
 }
 
 
-main div:not(section div) {
-    max-width: 1200px;
-    margin: 0 auto 30px auto;
-}
+/* ==========================================================================
+   Pie de Página - Estilos comunes usados en la mayoría de las páginas
+   ========================================================================== */
 
-h3 {
-    font-size: 28px;
-    color: #6F1E2A;
+footer {
+    background-color: #4e0575;
     text-align: center;
-    margin-top: 0;
-    margin-bottom: 40px;
+    padding: 20px 15px;
+    font-size: 14px;
+    /* Estilos base del pie de página */
 }
+
+footer p {
+    color: #f9f9f9;
+    margin: 8px 0;
+    /* Estilos para los párrafos dentro del pie de página */
+}
+
+
+/* ==========================================================================
+   Estilos Específicos de la Página de Inicio (index.html)
+   ========================================================================== */
+
+@keyframes fadeInScaleUp {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    /* Animación para la imagen principal en index.html */
+}
+
+.imgo {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    /* Contenedor para la imagen principal con overflow oculto */
+}
+
+.imgo img {
+    width: 100%;
+    max-height: 60vh;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    border: 2px solid #6F1E2A;
+    animation: fadeInScaleUp 1.2s ease-out forwards;
+    /* Estilo y animación para la imagen principal */
+}
+
 
 .mision-vision-container {
     display: flex;
@@ -145,6 +288,7 @@ h3 {
     gap: 30px;
     perspective: 1000px;
     margin-bottom: 40px;
+    /* Contenedor flexible para los bloques de Misión y Visión */
 }
 
 .mision,
@@ -158,6 +302,7 @@ h3 {
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: background-color 0.4s ease, color 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
+    /* Estilos para los bloques de Misión y Visión */
 }
 
 .mision:hover,
@@ -166,6 +311,7 @@ h3 {
     color: white;
     transform: translateY(-10px) rotateY(3deg) scale(1.03);
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    /* Efectos hover en Misión/Visión */
 }
 
 .mision:hover h2,
@@ -173,13 +319,139 @@ h3 {
 .mision:hover p,
 .vision:hover p {
     color: white;
+    /* Cambia el color del texto dentro de Misión/Visión al hacer hover */
 }
+
+.enviarc {
+    text-align: center;
+    margin-top: 15px;
+    /* Contenedor para el botón "enviar comentarios" */
+    /* El id #mencomen no tiene estilos específicos en el CSS proporcionado */
+}
+
+
+/* ==========================================================================
+   Estilos Específicos de la Página de Admisión (admicion.html)
+   ========================================================================== */
+
+
+.datos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 25px;
+    padding: 30px 15px;
+    /* Contenedor flexible para los elementos destacados (Educación Gratuita, Título a Nombre de la Nación, etc.) */
+}
+
+.educacion,
+.nacion,
+.formacion {
+    flex: 1 1 300px;
+    min-width: 280px;
+    background-color: #f9f9f9;
+    padding: 25px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.1);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+    grid-column-gap: 20px;
+    align-items: start;
+    /* Estilos para cada elemento destacado específico */
+}
+
+.educacion:hover,
+.nacion:hover,
+.formacion:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 7px 14px rgba(0, 0, 0, 0.15);
+    /* Efecto hover en los elementos destacados */
+}
+
+.educacion .icono,
+.nacion .icono,
+.formacion .icono {
+    background-color: #C83A31;
+    color: white;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    font-size: 24px;
+    font-weight: bold;
+    grid-row: 1 / span 2;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Estilo para el icono dentro de cada elemento destacado */
+}
+
+.educacion:hover .icono,
+.nacion:hover .icono,
+.formacion:hover .icono {
+    animation: pulseIcon 1.6s infinite ease-in-out;
+    /* Animación del icono al pasar el mouse */
+}
+
+/* darle diseño a los inconos al pasar por ellos*/
+@keyframes pulseIcon {
+    0% {
+        transform: scale(1) rotate(0deg);
+        box-shadow: 0 0 0 0 rgba(200, 58, 49, 0.0);
+    }
+
+    50% {
+        transform: scale(1.15) rotate(7deg);
+        box-shadow: 0 0 18px 10px rgba(200, 58, 49, 0.35);
+    }
+
+    100% {
+        transform: scale(1) rotate(0deg);
+        box-shadow: 0 0 0 0 rgba(200, 58, 49, 0.0);
+    }
+
+    /* Definición de la animación pulseIcon */
+}
+
+.educacion h3,
+.nacion h3,
+.formacion h3 {
+    grid-column: 2;
+    margin: 0 0 10px 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333333;
+    line-height: 1.3;
+    text-align: left;
+    /* Estilo para los encabezados dentro de elementos destacados */
+}
+
+.educacion p,
+.nacion p,
+.formacion p {
+    grid-column: 2;
+    margin: 0;
+    font-size: 14px;
+    color: #555555;
+    line-height: 1.5;
+    text-align: left;
+    /* Estilo para los párrafos dentro de elementos destacados */
+}
+
+
+/* ==========================================================================
+   Estilos Específicos de la Página de Carreras (carreras.html)
+   ========================================================================== */
 
 #carreras {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
     margin-bottom: 40px;
+    /* Diseño de cuadrícula para la lista de carreras */
 }
 
 .conta_carreras {
@@ -190,6 +462,7 @@ h3 {
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    /* Estilo para cada contenedor individual de carrera */
 }
 
 .conta_carreras h2 {
@@ -198,6 +471,7 @@ h3 {
     margin-bottom: 15px;
     font-size: 20px;
     transition: color 0.3s ease;
+    /* Estilo para el título dentro de cada carrera */
 }
 
 .conta_carreras p {
@@ -205,75 +479,36 @@ h3 {
     font-size: 15px;
     line-height: 1.6;
     transition: color 0.3s ease;
+    /* Estilo para el párrafo dentro de cada carrera */
 }
 
 .conta_carreras:hover {
     background-color: #6F1E2A;
     transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    /* Efecto hover en los contenedores de carrera */
 }
 
 .conta_carreras:hover h2,
 .conta_carreras:hover p {
     color: #f0f0f0;
-}
-
-h2 {
-    font-size: 24px;
-    color: #6F1E2A;
-    margin-top: 0;
-    margin-bottom: 20px;
-}
-
-p {
-    font-size: 16px;
-    color: #333;
-    line-height: 1.7;
-    margin-top: 0;
-    margin-bottom: 1em;
-}
-
-section {
-    background: white;
-    padding: 30px 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    box-sizing: border-box;
+    /* Cambia el color del texto dentro de la carrera al hacer hover */
 }
 
 .imgcarrera {
     width: 100%;
     max-width: 600px;
+    /* Este max-width podría ser grande para elementos en grid */
     height: auto;
     margin-bottom: 20px;
     border-radius: 6px;
+    /* Estilo para la imagen dentro de cada contenedor de carrera */
 }
 
-section div {
-    text-align: center;
-    width: 100%;
-}
 
-section h2 {
-    font-size: 22px;
-    color: #b22222;
-    margin-bottom: 15px;
-}
-
-section p {
-    font-size: 15px;
-    color: #555;
-    margin-bottom: 0;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-}
+/* ==========================================================================
+   Estilos Específicos de la Página de Matrículas (matricula.html)
+   ========================================================================== */
 
 .container {
     width: 100%;
@@ -284,12 +519,14 @@ section p {
     border-radius: 8px;
     padding: 20px;
     color: white;
+    /* Contenedor principal con fondo y espaciado */
 }
 
 .content {
     position: relative;
     text-align: center;
     color: white;
+    /* Contenedor interior para el contenido */
 }
 
 .content img {
@@ -298,6 +535,7 @@ section p {
     display: block;
     border-radius: 6px;
     margin-bottom: 15px;
+    /* Estilo para la imagen dentro del contenido */
 }
 
 .content h1 {
@@ -311,6 +549,7 @@ section p {
     margin: 0;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
     width: 90%;
+    /* Estilo para el título H1 superpuesto en la imagen */
 }
 
 .content p {
@@ -318,11 +557,13 @@ section p {
     font-size: 16px;
     line-height: 1.5;
     color: #f1e2e2;
+    /* Estilo para los párrafos dentro del contenido */
 }
 
 .content h2,
 .content h3 {
     font-size: 20px;
+    /* Tamaño más pequeño para H2/H3 dentro del contenido */
     color: #fa6a6a;
     margin: 15px 0 5px;
 }
@@ -330,121 +571,43 @@ section p {
 .content a {
     color: #87CEFA;
     text-decoration: none;
+    /* Estilo para los enlaces dentro del contenido */
 }
 
-.content button{
+.content button {
     background-color: #0066cc;
+    /* Estilo de botón específico para esta sección */
     color: white;
     height: 45px;
+    /* La altura específica puede anular el padding del botón global */
 }
 
 .content a:hover {
     text-decoration: underline;
     color: #FFD700;
+    /* Efecto hover para los enlaces dentro del contenido */
 }
 
-footer {
-    background-color: #4e0575;
-    text-align: center;
-    padding: 20px 15px;
-    font-size: 14px;
+#listafrases {
+    color: #f0f0f0;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    margin: 20px 0;
+    /* Estilo para la lista de frases */
 }
 
-footer p {
-    color: #f9f9f9;
-    margin: 8px 0;
-}
 
-.about-highlights {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    gap: 25px;
-    padding: 30px 15px;
-}
-
-.highlight {
-    flex: 1 1 300px;
-    min-width: 280px;
-    background-color: #f9f9f9;
-    padding: 25px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 3px 7px rgba(0,0,0,0.1);
-    transition: transform 0.35s ease, box-shadow 0.35s ease;
-    display: grid;
-    grid-template-columns: auto 1fr;
-    grid-template-rows: auto auto;
-    grid-column-gap: 20px;
-    align-items: start;
-}
-
-.highlight:hover {
-    transform: translateY(-6px) scale(1.02);
-    box-shadow: 0 7px 14px rgba(0,0,0,0.15);
-}
-
-.highlight-icon {
-    background-color: #C83A31;
-    color: white;
-    width: 60px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 8px;
-    font-size: 24px;
-    font-weight: bold;
-    grid-row: 1 / span 2;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.highlight:hover .highlight-icon {
-    animation: pulseIcon 1.6s infinite ease-in-out;
-}
-
-@keyframes pulseIcon {
-    0% { transform: scale(1) rotate(0deg); box-shadow: 0 0 0 0 rgba(200, 58, 49, 0.0); }
-    50% { transform: scale(1.15) rotate(7deg); box-shadow: 0 0 18px 10px rgba(200, 58, 49, 0.35); }
-    100% { transform: scale(1) rotate(0deg); box-shadow: 0 0 0 0 rgba(200, 58, 49, 0.0); }
-}
-
-.highlight h3 {
-    grid-column: 2;
-    margin: 0 0 10px 0;
-    font-size: 18px;
-    font-weight: bold;
-    color: #333333;
-    line-height: 1.3;
-    text-align: left;
-}
-
-.highlight p {
-    grid-column: 2;
-    margin: 0;
-    font-size: 14px;
-    color: #555555;
-    line-height: 1.5;
-    text-align: left;
-}
+/* ==========================================================================
+   Estilos Específicos de la Página de Servicios (servisio.html)
+   ========================================================================== */
 
 section.service-article-section {
     width: 100%;
     max-width: 960px;
     margin-left: auto;
     margin-right: auto;
-}
-
-.serviimg {
-    width: 100%;
-    max-width: 450px;
-    height: auto;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 25px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    /* Estilo para un tipo específico de sección (tal vez no usada en el HTML proporcionado) */
 }
 
 .imgser {
@@ -457,207 +620,261 @@ section.service-article-section {
     margin-bottom: 20px;
     border-radius: 6px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Estilo para las imágenes de servicio/intranet */
 }
 
-button {
-    background-color: #6F1E2A;
-    color: #f9f9f9;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: bold;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
 
-button:hover {
-    background-color: #5a1822;
-    transform: translateY(-2px);
-}
+/* ==========================================================================
+   Estilos Específicos de la Página de Noticias (noticia.html)
+   ========================================================================== */
 
-button:active {
-    transform: translateY(0px);
-}
-
-@keyframes fadeInHeader {
-    from {
-        opacity: 0;
-        transform: translateY(-25px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-#listafrases{
-    color: #f0f0f0;
-    padding: 15px;
-    background-color: rgba(0,0,0,0.3);
-    border-radius: 5px;
-    margin: 20px 0;
-}
-
-.formulario{
-    text-align: center;
-    background-color: #c47deb;
-    color: rgb(42, 0, 86);
-    font-size: 20px;
-    padding: 20px;
+.serviimg {
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 25px;
     border-radius: 8px;
-    margin-bottom: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Estilo para la imagen grande de noticia */
 }
 
-.enviarc{
-    text-align: center;
-    margin-top: 15px;
-}
+
+/* ==========================================================================
+   Consultas de Medios - Ajustes Responsive para diferentes tamaños de pantalla
+   ========================================================================== */
 
 @media (max-width: 1024px) {
     .navbar-center {
         gap: 10px;
+        /* Reduce el espacio entre elementos de navegación */
     }
+
     .navbar-center a {
         font-size: 13px;
         padding: 5px 8px;
+        /* Reduce el tamaño y padding de los enlaces de navegación */
     }
+
     h3 {
         font-size: 26px;
+        /* Reduce el tamaño de los títulos H3 */
     }
-    .mision, .vision {
+
+    .mision,
+    .vision {
         min-width: calc(50% - 30px);
+        /* Ajusta el ancho mínimo para 2 columnas en index.html */
     }
+
     #carreras {
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        /* Ajusta la cuadrícula de carreras */
         gap: 20px;
     }
-    .highlight {
+
+    .educacion,
+    .nacion,
+    .formacion {
         min-width: calc(50% - 25px);
+        /* Ajusta el ancho mínimo para los elementos destacados en admicion.html */
     }
 }
 
 @media (max-width: 768px) {
     header {
         padding: 20px 0;
+        /* Reduce el padding del encabezado */
     }
+
     .navbar {
         flex-direction: column;
         padding: 15px;
+        /* Apila los elementos de la barra de navegación verticalmente */
     }
+
     .navbar-left {
         position: static;
         transform: none;
         margin-bottom: 15px;
+        /* Posiciona el logo estáticamente */
     }
+
     .navbar-left img {
         height: 35px;
+        /* Reduce el tamaño del logo */
     }
+
     .navbar-center {
         flex-direction: column;
         width: 100%;
         gap: 12px;
         align-items: center;
+        /* Apila los enlaces de navegación y los centra */
     }
+
     .navbar-center a {
         width: 80%;
         justify-content: center;
+        /* Hace que los enlaces de navegación ocupen más ancho */
     }
+
     button {
         width: 80%;
         max-width: 250px;
         padding: 12px 15px;
         font-size: 13px;
+        /* Ajusta el tamaño y padding de los botones */
     }
+
     .imgo img {
         max-height: 45vh;
+        /* Reduce la altura máxima de la imagen principal */
     }
+
     .mision-vision-container {
         flex-direction: column;
         align-items: center;
+        /* Apila los bloques de misión/visión */
     }
+
     .mision,
     .vision {
         width: 90%;
         max-width: 450px;
         margin: 10px 0;
         min-width: initial;
+        /* Ajusta el ancho de los bloques misión/visión */
     }
+
     #carreras {
         grid-template-columns: 1fr;
+        /* Apila los elementos de la cuadrícula de carreras */
     }
-    .highlight {
+
+    .educacion,
+    .nacion,
+    .formacion {
         min-width: 90%;
         max-width: 450px;
+        /* Ajusta el ancho de los elementos destacados */
     }
+
     .content h1 {
         font-size: 28px;
         top: 15%;
+        /* Ajusta la posición del título superpuesto en Matricula */
     }
+
     .content p {
         font-size: 15px;
+        /* Reduce el tamaño de fuente de párrafos */
     }
+
     .content h2,
     .content h3 {
         font-size: 19px;
+        /* Reduce el tamaño de fuente de H2/H3 */
     }
 }
 
 @media (max-width: 480px) {
     body {
         font-size: 14px;
+        /* Reduce el tamaño de fuente base */
     }
+
     main {
         padding: 15px;
+        /* Reduce el padding principal */
     }
+
     header {
         padding: 15px 0;
+        /* Reduce el padding del encabezado */
     }
+
     .navbar-left img {
         height: 30px;
+        /* Reduce aún más el tamaño del logo */
     }
+
     .navbar-center a {
         font-size: 13px;
         padding: 8px 10px;
         width: 90%;
+        /* Ajustes para enlaces de navegación */
     }
+
     button {
         font-size: 12px;
         padding: 10px 12px;
         width: 90%;
+        /* Ajustes para botones */
     }
+
     h2 {
         font-size: 20px;
+        /* Ajusta el tamaño de H2 */
     }
+
     h3 {
         font-size: 22px;
         margin-bottom: 30px;
+        /* Ajusta el tamaño y margen de H3 */
     }
+
     p {
         font-size: 14px;
+        /* Ajusta el tamaño de párrafos */
     }
-    .mision, .vision, .conta_carreras, .highlight {
+
+    .mision,
+    .vision,
+    .conta_carreras,
+    .educacion,
+    .nacion,
+    .formacion {
         padding: 20px;
         width: 100%;
         max-width: none;
+        /* Hace que varios elementos ocupen el ancho completo */
     }
-    .highlight-icon {
+
+    .educacion .icono,
+    .nacion .icono,
+    .formacion .icono {
         width: 50px;
         height: 50px;
         font-size: 20px;
+        /* Ajusta el tamaño de los iconos */
     }
-    .highlight h3 {
+
+    .educacion h3,
+    .nacion h3,
+    .formacion h3 {
         font-size: 16px;
+        /* Ajusta el tamaño de encabezados en elementos destacados */
     }
-    .highlight p {
+
+    .educacion p,
+    .nacion p,
+    .formacion p {
         font-size: 13px;
+        /* Ajusta el tamaño de párrafos en elementos destacados */
     }
+
     .content h1 {
         font-size: 22px;
+        /* Ajuste adicional del título superpuesto en Matricula */
     }
+
     section {
         padding: 20px 15px;
         margin-top: 20px;
         margin-bottom: 20px;
+        /* Ajusta el padding y margen de secciones */
     }
 }
